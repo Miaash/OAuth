@@ -1,0 +1,11 @@
+# template-sms:
+  # SLMN00001: 인증번호 [&{DEFAULT}]가 발급되었습니다.
+  # SLMN00002: 당신의 관리자 개인번호는 &{ENO}입니다.
+
+# template-alarm:
+  # ALMN00001: 알림톡 테스트 알림톡 테스트 알림톡 테스트
+
+template:
+  SLMN00001: "인증번호 [&{custom.authCode}]가 발급되었습니다."
+  SLMN00002: "당신의 관리자 개인번호는 &{user.eno}이고 이름은 &{user.usrnm}입니다. 테스트: &{custom.value}"
+  ALMN00001: "알림톡 테스트 알림톡 테스트 알림톡 테스트"

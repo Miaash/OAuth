@@ -1,0 +1,36 @@
+b64key:
+  pwencoding: KEY1
+
+mca: #축경
+  # url: http://192.168.114.11:19211/http/nhjmk-fmec
+  url: http://192.168.97.141:19211/http/nhjmk-fmec #운영 적용시 사용
+
+server:
+  url: https://xn--289al3wp3as1lt3r.kr
+  fronturl: https://xn--289al3wp3as1lt3r.kr
+
+#변경 필요.
+# client secret key owner쪽에서 설정필요.
+kko: #카카오 로그인 정보 - 스마트 청과경매시장
+  login:
+    auth.url: https://kauth.kakao.com
+    api.url: https://kapi.kakao.com
+    redirect.url: http://xn--289al3wp3as1lt3r/kkoLoginProc
+    client:
+      secret: ONxhsAW9cgOnAcFr6FStiCIOyhUFpdgu
+      id:
+        api: 99494d29a19bf48bea714533fd11d0f1
+        app: 5c36c8068fcd6997b8a242ccd0dcd03b
+        admin: f60571dc48ec6be78ccb05bf0ced6a13
+        javascript: 338afa80268c3f6198d0102f1ae4088b
+      scope: account_email,name,phone_number
+      state: 12345
+
+# 변경필요
+apple: #애플 로그인 정보
+  login:
+    redirect.url: http://xn--289al3wp3as1lt3r/appleLoginProc
+    keyresourceloc: key/AuthKey_H487TCWCX7.p8
+    clientid: com.nhjmk.www #bundleid
+    teamid: 7A93722H77
+    appid: H487TCWCX7

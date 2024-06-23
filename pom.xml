@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.18</version>
+		<relativePath/>
+		<!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.lkbt.auction</groupId>
+	<artifactId>auction</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>Agro Market Auction</name>
+	<description>Agro Martket Auction Project</description>
+
+	<!-- local repository 경로 설정-->
+	<repositories>
+		<repository>
+			<id>local-repository</id>
+			<name>local-repository</name>
+			<url>file://${project.basedir}/repo</url>
+		</repository>
+	</repositories>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+		<!-- javax.validator -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!--
+			spring doc : swagger 사용을 위한 dependency
+			url : https://springdoc.org/
+		-->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.7.0</version>
+		</dependency>
+		<!--
+			log4jdbc : query log
+			url : https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1
+		-->
+		<dependency>
+			<groupId>org.bgee.log4jdbc-log4j2</groupId>
+			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+			<version>1.16</version>
+		</dependency>
+
+		<!-- tibero 6 -->
+		<dependency>
+			<groupId>com.tmax.tibero</groupId>
+			<artifactId>tibero-jdbc</artifactId>
+			<version>6.0</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/tibero6-jdbc.jar</systemPath> -->
+		</dependency>
+
+		<!-- mybatis 페이지 처리를 위한 helper lib -->
+		<!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter -->
+		<!-- https://github.com/pagehelper/pagehelper-spring-boot -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.4.6</version>
+		</dependency>
+
+		<!-- 엑셀관련 poi 추가 -->
+		<!-- mvn install:install-file -Dfile=src/main/resources/lib/poi-4.1.2.jar -DgroupId=org.apache.poi -DartifactId=poi -Dversion=4.1.2 -Dpackaging=jar -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk18on</artifactId>
+			<version>1.76</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk18on</artifactId>
+			<version>1.76</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>4.1.2</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/poi-4.1.2.jar</systemPath> -->
+		</dependency>
+		<!-- mvn install:install-file -Dfile=src/main/resources/lib/poi-ooxml-4.1.2.jar -DgroupId=org.apache.poi -DartifactId=poi-ooxml -Dversion=4.1.2 -Dpackaging=jar -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>4.1.2</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/poi-ooxml-4.1.2.jar</systemPath> -->
+		</dependency>
+		<!-- mvn install:install-file -Dfile=src/main/resources/lib/poi-ooxml-schemas-4.1.2.jar -DgroupId=poi-ooxml-schemas -DartifactId=poi-ooxml-schemas -Dversion=4.1.2 -Dpackaging=jar -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>4.1.2</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/poi-ooxml-schemas-4.1.2.jar</systemPath> -->
+		</dependency>
+
+		<!-- jjwt-api, jjwt-impl, jjwt-jaskson 로그인 처리시 필요 -->
+		<!-- mvn install:install-file -Dfile=src/main/resources/lib/jjwt-api-0.11.5.jar -DgroupId=io.jsonwebtoken -DartifactId=jjwt-api -Dversion=0.11.5 -Dpackaging=jar -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.5</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/jjwt-api-0.11.5.jar</systemPath> -->
+		</dependency>
+		<!-- mvn install:install-file -Dfile=src/main/resources/lib/jjwt-impl-0.11.5.jar -DgroupId=io.jsonwebtoken -DartifactId=jjwt-impl -Dversion=0.11.5 -Dpackaging=jar -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.11.5</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/jjwt-impl-0.11.5.jar</systemPath> -->
+		</dependency>
+		<!-- mvn install:install-file -Dfile=src/main/resources/lib/jjwt-jackson-0.11.5.jar -DgroupId=io.jsonwebtoken -DartifactId=jjwt-jackson -Dversion=0.11.5 -Dpackaging=jar -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.11.5</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/jjwt-jackson-0.11.5.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.nimbusds</groupId>
+			<artifactId>nimbus-jose-jwt</artifactId>
+			<version>9.31</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<!-- [resources] 환경변수 파일 바꾸기용 -->
+		<!-- resources>
+			<resource>
+				<directory>src/main/resources/${spring.profile.active}</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources -->
+	</build>
+	<profiles>
+		<profile>
+			<!-- 개인 Local서버 -->
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<spring.profile.active>local</spring.profile.active>
+			</properties>
+		</profile>
+		<profile>
+			<!-- 내부 개발서버(농협) -->
+			<id>develop</id>
+			<properties>
+				<spring.profile.active>develop</spring.profile.active>
+			</properties>
+		</profile>
+		<profile>
+			<!-- 외부 개발서버 -->
+			<id>intergration</id>
+			<properties>
+				<spring.profile.active>intergration</spring.profile.active>
+			</properties>
+		</profile>
+		<profile>
+			<!-- 운영서버 -->
+			<id>production</id>
+			<properties>
+				<spring.profile.active>production</spring.profile.active>
+			</properties>
+		</profile>
+	</profiles>
+</project>

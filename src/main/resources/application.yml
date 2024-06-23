@@ -1,0 +1,62 @@
+spring:
+  config:
+    import: classpath:alarm.yml   # application-을 붙여서 profile 처리하는 yml이외의 커스텀 yml 추가시 처리
+  profiles:
+    active: @spring.profile.active@
+      #- local
+      #- develop    # 빌드시 빌드하는 프로필로 변경하고 빌드
+      #- production
+  web:
+    resources:
+      static-locations: classpath:/META-INF/resources/, classpath:/resources/, classpath:/static/, classpath:/public/, classpath:/static/dist
+
+# springdoc-openapi 설정
+springdoc:
+  # 요청 media type
+  # default-consumes-media-type: application/json;charset=UTF-8
+  # 응답 media type
+  default-produces-media-type: application/json;charset=UTF-8
+  api-docs:
+    enabled: true
+    version: openapi-3-0
+  swagger-ui:
+    # 경로: http://localhost:8080/swagger-ui/index.html
+    enabled: true
+    path: /swagger-ui.html
+    url: /v3/api-docs
+  # outerdto.innerdto 를 제대로 인식하도록 처리 (fully qualified names support)
+  use-fqn: true
+
+# mybatis 설정
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.lkbt.auction.model.dto
+  configuration:
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    jdbc-type-for-null: null
+    default-fetch-size: 500
+
+pagehelper:
+  helper-dialect: oracle
+  page-size-zero: false
+
+# origin secret - nhshdguqnhaucprojectnhshdguqnhaucprojectnhshdguqnhaucprojectnhshdguqnhaucproject!
+jwt:
+  header: Authorization
+  secret: bmhzaGRndXFqbWFya2V0cHJvamVjdG5oc2hkZ3Vxam1hcmtldHByb2plY3RuaHNoZGd1cWptYXJrZXRwcm9qZWN0bmhzaGRndXFqbWFya2V0cHJvamVjdCE=
+  access-token-validity-in-milliseconds: 3600000 # 60 * 60 * 1000 1시간
+
+b64key:
+  pwencoding: KEY1  # 바꾸면 앙대요
+
+cript:
+  key: nhnonghyupaaaaab
+  iv: nhnonghyupaaaaab
+
+nstorage:
+  endpoint: https://kr.object.ncloudstorage.com
+  region: kr-standard
+  bucket-name: nhlivestock2
+  access-key: e4u5Yuews5ZDSAmlwVRT
+  secret-key: 7G48xCRyCClh1rtM59nQ0SzkSxGHzYxdwi6ATfca

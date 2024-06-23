@@ -1,0 +1,9 @@
+b64key:
+  pwencoding: KEY1
+
+mca: #축경
+  url: http://192.168.114.11:19211/http/nhjmk-fmec
+
+server:
+  url: http://nhauc.lkbt.co.kr
+  fronturl: http://nhauc.lkbt.co.kr

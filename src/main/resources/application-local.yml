@@ -1,0 +1,53 @@
+spring:
+  # database 정보
+  datasource:
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      pool-name: NHJMK
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      jdbc-url: jdbc:log4jdbc:tibero:thin:@115.41.222.25:8629:tibero
+      username: nhjmk
+      password: nhjmk123
+
+server:
+  port: 10180
+  url: http://localhost:10180
+  fronturl: http://localhost:5173
+
+b64key:
+  pwencoding: KEY1
+
+mca: #축경
+  url: http://192.168.114.11:19211/http/nhjmk-fmec
+
+#변경 필요.
+# client secret key owner쪽에서 설정필요.
+kko: #카카오 로그인 정보 - 스마트 청과경매시장 TEST
+  login:
+    auth.url: https://kauth.kakao.com
+    api.url: https://kapi.kakao.com
+    redirect.url: http://localhost:10181/kkoLoginProc
+    client:
+      secret: tKoNyqGhPxqC2ZOkep8pKVM9dFBNYTve
+      id:
+        api: 99494d29a19bf48bea714533fd11d0f1
+        app: 5c36c8068fcd6997b8a242ccd0dcd03b
+        admin: f60571dc48ec6be78ccb05bf0ced6a13
+        javascript: 338afa80268c3f6198d0102f1ae4088b
+      scope: account_email,name,phone_number
+      state: 12345
+
+# 변경필요
+apple: #애플 로그인 정보
+  login:
+    redirect.url: http://localhost:9091/appleLoginProc
+    keyresourceloc: key/AuthKey_H487TCWCX7.p8
+    clientid: com.nhjmk.www #bundleid
+    teamid: 7A93722H77
+    appid: H487TCWCX7
+naver: #네이버 로그인 정보
+  login:
+    redirect.url: http://localhost:10181/naverLoginProc
+    client:
+      secret: uk32AcHewc
+      id: zNGV0aNPxwp452818yyW

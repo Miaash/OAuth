@@ -1,0 +1,34 @@
+b64key:
+  pwencoding: KEY1
+
+mca: #축경
+  url: http://192.168.114.11:19211/http/nhjmk-fmec
+
+server:
+  url: https://nhaucdev.com
+  fronturl: https://nhaucdev.com
+
+# 변경 필요.
+# 스마트 청과경매시장 (url 도메인명 변경필요.)
+kko: #카카오 로그인 정보
+  login:
+    auth.url: https://kauth.kakao.com
+    api.url: https://kapi.kakao.com
+    redirect.url: https://nhaucdev.com/kkoLoginProc
+    client:
+      secret: ONxhsAW9cgOnAcFr6FStiCIOyhUFpdgu
+      id:
+        api: cb98674aac00ce149c13bfa16c5893d8
+        app: e968ecd6209eb34e56260e6d5d7b1a17
+        admin: 87f3ba88b9281b6aedfe9678409c4aea
+        javascript: e1ae48cfb02ff5a40e6ea53b7a303fbd
+      scope: account_email,name,phone_number
+      state: 12345
+
+apple: #애플 로그인 정보
+  login:
+    redirect.url: https://nhaucdev.com/appleLoginProc
+    keyresourceloc: key/AuthKey_H487TCWCX7.p8
+    clientid: com.nhjmk.www #bundleid
+    teamid: 7A93722H77
+    appid: H487TCWCX7

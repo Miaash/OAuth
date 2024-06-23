@@ -1,0 +1,20 @@
+[
+    {
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target" : { 
+            "namespace": "android_app", 
+            "package_name": "com.nonghyup.livestockAuction",
+            "sha256_cert_fingerprints": 
+            ["73:E2:68:08:FE:67:CF:5F:9C:A3:4E:8E:B0:B2:48:A4:2C:A4:54:27:FC:D7:0E:F5:5A:3A:1E:C6:EC:3B:97:B2"] 
+        }
+    },
+    {
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.nonghyup.livestockAuction",
+        "sha256_cert_fingerprints":
+          ["3C:3C:CF:7F:C0:F9:F4:DF:53:13:CE:17:F9:CB:12:65:B1:7A:56:F1:FF:E7:53:5E:92:9B:05:49:15:D1:10:D0"]
+      }
+    }
+]
