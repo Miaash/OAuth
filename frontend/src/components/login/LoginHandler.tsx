@@ -9,7 +9,11 @@ import { useEffect } from "react";
  * @returns
  */
 const LoginHandler = () => {
-  const authCode = new URL(window.location.href).searchParams.get("code");
+  const code = new URL(window.location.href).searchParams.get("code");
+  const grant_type = "authorization_code";
+  const client_id = import.meta.env.VITE_KAKAO_REST_API_KEY;
+  const redirect_uri = import.meta.env.VITE_KAKAO_REDIRECT_URI;
+
   useEffect(() => {
     // 백으로 보내는 api 호출.
     // axios
@@ -22,6 +26,42 @@ const LoginHandler = () => {
     //   .catch((err) => {
     //     console.error(err);
     //   });
+    // 프론트에서 테스트해본 코드
+    const oauthUrl = `https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${client_id}&redirect_uri=${redirect_uri}&code=${code}`;
+    axios
+      .post(
+        oauthUrl,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/X-WWW-form-urlencoded",
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        const { data } = res;
+        const { access_token } = data;
+        console.log("access_token", access_token);
+        if (access_token) {
+          axios
+            .post(
+              "https:/kapi/kakao.com/v2/user/me",
+              {},
+              {
+                headers: {
+                  Authorization: `Bearer ${access_token}`,
+                  "Content-Type": "application/X-WWW-form-urlencoded",
+                },
+              }
+            )
+            .then((res) => {
+              console.log(res);
+            });
+        } else {
+          console.log("access_token이 없습니다.");
+        }
+      });
   }, []);
 
   return (

@@ -3,12 +3,11 @@ import kakaoBtn from "../assets/images/contents/btn-kakao.png";
 
 const KaKaoLoginPage = () => {
   const kakaoConfig = {
-    authUrl: import.meta.env.VITE_KAKAO_AUTH_URL,
-    redirectUri: import.meta.env.VITE_KAKAO_REDIRECT_URI,
-    javascriptKey: import.meta.env.VITE_KAKAO_JAVASCRIPT_KEY,
-    restApiKey: import.meta.env.VITE_KAKAO_REST_API_KEY,
+    auth_url: import.meta.env.VITE_KAKAO_AUTH_URL,
+    redirect_uri: import.meta.env.VITE_KAKAO_REDIRECT_URI,
+    client_id: import.meta.env.VITE_KAKAO_REST_API_KEY,
   };
-  const kakaoAUthUrl = `${kakaoConfig.authUrl}response_type=code&client_id=${kakaoConfig.restApiKey}&redirect_uri=${kakaoConfig.redirectUri}`;
+  const kakaoAUthUrl = `${kakaoConfig.auth_url}response_type=code&client_id=${kakaoConfig.client_id}&redirect_uri=${kakaoConfig.redirect_uri}`;
 
   return (
     <Container>
