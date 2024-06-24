@@ -2,13 +2,20 @@ package com.lkbt.auction.configuration.security.dto.request;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
+import com.lkbt.auction.model.dto.LoginDto;
+
+import lombok.Getter;
+
 /**
  * [AccessToken 규격]
  * UsernamePasswordAuthenticationToken클래스를 상속받아 엑세스 토큰 규격화.
  * UsernamePasswordAuthenticationToken: 사용자이름, 비밀번호로 인증정보 캡슐화.
- * params: principal -> 인증주체(사용자이름), credentials -> 자격증명(비번.)
+ * fields: principal -> 인증주체(사용자이름), credentials -> 자격증명(비번.)
  */
 public class UserAccessToken extends UsernamePasswordAuthenticationToken {
+
+    @Getter
+    private LoginDto.loginParam addParam;
 
     // UsernamePasswordAuthenticationToken의 생성자를 호출하여 인증주체, 자격증명 설정.
     public UserAccessToken(Object principal, Object credentials) {

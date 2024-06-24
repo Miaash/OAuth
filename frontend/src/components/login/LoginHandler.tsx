@@ -18,7 +18,7 @@ const LoginHandler = () => {
     // 백으로 보내는 api 호출.
     // axios
     //   .post("/user/oauth/kakao", {
-    //     code: authCode,
+    //     code: code,
     //   })
     //   .then((res) => {
     //     console.log(res);
